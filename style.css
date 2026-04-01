@@ -1,0 +1,153 @@
+/* --- Professional Midnight Neon Theme --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+  --bg-color: #05050a;
+  --card-bg: rgba(15, 23, 42, 0.7);
+  --accent-blue: #6366f1;
+  --accent-cyan: #06b6d4;
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --win-glow: #fbbf24;
+  --radius: 16px;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15), transparent),
+    radial-gradient(circle at 0% 100%, rgba(6, 182, 212, 0.08), transparent);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-primary);
+}
+
+/* Header & Winner Text */
+.head {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(to bottom, #fff, #64748b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+#winner {
+  height: 30px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: var(--win-glow);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+/* Game Container & Grid Logic */
+.game {
+  display: grid;
+  /* This creates a 3x3 grid and ignores your <br> tags */
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 12px;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* Tic Tac Toe Buttons */
+#btn {
+  width: 100%;
+  height: 100%;
+  padding: 0; /* Removing the inline style override */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#btn:hover:not([disabled]) {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--accent-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+#btn:active {
+  transform: scale(0.95);
+}
+
+#btn:disabled {
+  cursor: default;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Action Buttons (Start/Reset) */
+#start, #reset {
+  grid-column: span 3; /* Makes them span the whole width of the grid */
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+#start {
+  background: var(--accent-blue);
+  color: white;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+#start:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+#reset {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  display: none;
+}
+
+#reset:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+/* Board ko shuru mein chhupane ke liye */
+.board {
+    display: none; /* JS isko grid mein tabdeel kar dega */
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 12px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 24px;
+    margin-bottom: 20px;
+}
+    
